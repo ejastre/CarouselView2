@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:App4"
+             xmlns:forms="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView"
+             xmlns:abstractions="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="App4.MainPage">
+    <ContentPage.Content>
+
+
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".3*"/>
+                <RowDefinition Height=".7*"/>
+            </Grid.RowDefinitions>
+            
+            <forms:CarouselView x:Name="CarouselZoos" Position="0">
+                <forms:CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>
+                            <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+                                <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </forms:CarouselView.ItemTemplate>
+            </forms:CarouselView>
+
+            <abstractions:CarouselViewControl Grid.Row="1" Orientation="Horizontal" 
+                                              InterPageSpacing="10"
+                                              Position="2"
+                                              ShowArrows="True"
+                                              ShowIndicators="True"
+                                               CurrentPageIndicatorTintColor="Aqua"
+                                               IndicatorsTintColor="Black"
+                                               IndicatorsShape="Circle"
+                                               x:Name="CarouselZoos2"
+                                              VerticalOptions="FillAndExpand" 
+                                              HorizontalOptions="FillAndExpand">
+                <abstractions:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.RowSpan="2" Aspect="AspectFill" Source="{Binding ImageUrl}"/>
+                            <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+                                <Label TextColor="White" Text="{Binding Name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </abstractions:CarouselViewControl.ItemTemplate>
+            </abstractions:CarouselViewControl>
+
+            <!--List of Monkeys below-->
+        </Grid>
+
+    </ContentPage.Content>
+</ContentPage>
